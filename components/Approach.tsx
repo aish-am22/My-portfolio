@@ -2,7 +2,6 @@ import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CanvasRevealEffect } from "./ui/CanvasRevealEffect";
 import MagicButton from "./MagicButton";
-import { FaLocationArrow } from "react-icons/fa6";
 
 const Approach = () => {
   return (
@@ -16,7 +15,7 @@ const Approach = () => {
         <Card
           title="Testimonials"
           icon={<AceternityIcon order="Testimonials" />}
-          des='"During the internship at GenAI Lakes,Swarna Sai Aishwarya showcased dedication, professionalism, and a strong learning attitude while contributing to AI projects under our technical team." — GenAI Lakes Pvt Ltd'
+          des={`"During the internship at GenAI Lakes, Swarna Sai Aishwarya showcased dedication, professionalism, and a strong learning attitude while contributing to AI projects under our technical team." — GenAI Lakes Pvt Ltd`}
         >
           <CanvasRevealEffect
             animationSpeed={5}
@@ -43,40 +42,32 @@ const Approach = () => {
 
         {/* Card 3: Resume */}
         <Card
-  title="View My Resume"
-  icon={<AceternityIcon order="Resume" />}
-  des={
-    <div className="flex flex-col items-center">
-      <p className="text-center">
-        Take a closer look at my detailed resume highlighting my skills,
-        projects, and experience.
-      </p>
-      {/* Resume Button */}
-      <a
-        href="https://drive.google.com/file/d/1l3AfcQpcqXHAGxMgOu5i3FN-UMDpaoMB/view?usp=sharing" // apna blogger/drive resume link daal
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-4"
-      >
-        <MagicButton
-          title="Open Resume"
-          icon=""
-          position="center"
-        />
-      </a>
-    </div>
-  }
->
-  <CanvasRevealEffect
-    animationSpeed={3}
-    containerClassName="bg-sky-600 rounded-3xl overflow-hidden"
-    colors={[[125, 211, 252]]}
-  />
-</Card>
-
-
-
-
+          title="View My Resume"
+          icon={<AceternityIcon order="Resume" />}
+          des={
+            <div className="flex flex-col items-center">
+              <p className="text-center">
+                Take a closer look at my detailed resume highlighting my skills,
+                projects, and experience.
+              </p>
+              {/* Resume Button */}
+              <a
+                href="https://drive.google.com/file/d/1l3AfcQpcqXHAGxMgOu5i3FN-UMDpaoMB/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4"
+              >
+                <MagicButton title="Open Resume" icon="" position="center" />
+              </a>
+            </div>
+          }
+        >
+          <CanvasRevealEffect
+            animationSpeed={3}
+            containerClassName="bg-sky-600 rounded-3xl overflow-hidden"
+            colors={[[125, 211, 252]]}
+          />
+        </Card>
       </div>
     </section>
   );
@@ -93,7 +84,7 @@ const Card = ({
   title: string;
   icon: React.ReactNode;
   children?: React.ReactNode;
-  des: string;
+  des: React.ReactNode; // ✅ FIXED: allow JSX or string
 }) => {
   const [hovered, setHovered] = React.useState(false);
   return (
@@ -139,14 +130,14 @@ const Card = ({
         >
           {title}
         </h2>
-        <p
+        <div
           className="text-sm opacity-0 group-hover/canvas-card:opacity-100
          relative z-10 mt-4 group-hover/canvas-card:text-white text-center
          group-hover/canvas-card:-translate-y-2 transition duration-200"
           style={{ color: "#E4ECFF" }}
         >
           {des}
-        </p>
+        </div>
       </div>
     </div>
   );
