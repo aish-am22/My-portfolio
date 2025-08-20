@@ -621,23 +621,6 @@ export default config;
 }
 ```
 
-</details>
-
-
-<details>
-<summary><code>Linear Gradient</code></summary>
-
-```js
-style={{
-        //   add these two
-        //   you can generate the color from here https://cssgradient.io/
-        background: "rgb(4,7,29)",
-        backgroundColor:
-          "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
-      }}
-```
-</details>
-
 
 Enjoyed creating this project? Dive deeper into our PRO courses for a richer learning experience. They're packed with detailed explanations, cool features, and exercises to boost your skills. Give it a go!
 
