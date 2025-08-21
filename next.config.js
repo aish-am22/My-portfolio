@@ -9,4 +9,11 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = {
+  webpack:(config, {isServer}) => {
+    if (!isServer){
+      config.resolve.alias['0'] = Path.resolve(__dirname, 'src')
+    }
+    return config
+  }
+}
